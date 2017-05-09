@@ -15,16 +15,4 @@ public class log {
     @Pointcut("execution (* com.example..*(..))")
     public void fun(){}
 
-    @Around("fun()")
-    public void around(ProceedingJoinPoint joinPoint)
-    {
-        try {
-            System.out.println("begin");
-            System.out.println(joinPoint.getTarget().getClass().getName());
-            joinPoint.proceed();
-            System.out.println("end");
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
-    }
 }
